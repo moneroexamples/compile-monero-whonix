@@ -61,8 +61,7 @@ and then copy to the default Monero folder, i.e., `~/.bitmonero/lmdb/`
 ```
 
 ## Example screenshot
-
-**Commands used to start the nodes and wallets:**
+`bitmonerod` daemon and `simplewallet` in Whonix Workstation:
 ![Before](https://raw.githubusercontent.com/moneroexamples/compile-monero-whonix/master/img/whonix_monero.jpg)
 
 ## How can you help?
