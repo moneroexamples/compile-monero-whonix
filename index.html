@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Monero Examples by moneroexamples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Monero Examples</h1>
+      <h2 class="project-tagline">compile-monero-whonix</h2>
+      <a href="https://github.com/moneroexamples/compile-monero-whonix" class="btn">View on GitHub</a>
+      <a href="https://github.com/moneroexamples/compile-monero-whonix/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/moneroexamples/compile-monero-whonix/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="compile-monero-09-on-whonix-workstation-for-virtualbox" class="anchor" href="#compile-monero-09-on-whonix-workstation-for-virtualbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compile Monero 0.9 on Whonix-Workstation for VirtualBox</h1>
+
+<p><a href="https://getmonero.org/">Monero</a> and <a href="https://www.whonix.org/">Whonix</a> are tools
+that privacy centric users can use as part of their privacy enhancing toolbox.</p>
+
+<p>One problem with Monero is that, if you want to run full Monero node, your
+IP address will be exposed to others in the Monero network. This, for some,
+might be not very good idea.</p>
+
+<p>One way to overcome this problem is to run the node through Tor. And this can be done having the Monero node running inside the Whonix.</p>
+
+<h2>
+<a id="preparation" class="anchor" href="#preparation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparation</h2>
+
+<p>Assuming that you have Whonix setup into your VirtualBox, the first thing that
+ should be done is to increase Whonix-Workstation's ram. The default size
+ is 768 MB, and this is not enough for compilation. I usually set it up to 2 GB, but I think 1GB should also be good.</p>
+
+<div class="highlight highlight-source-shell"><pre> VBoxManage modifyvm Whonix-Workstation --memory 2048</pre></div>
+
+<h2>
+<a id="compilation" class="anchor" href="#compilation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compilation</h2>
+
+<p>Start your Whonix-Workstation and do the following in the workstation.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># install dependencies</span>
+sudo apt-get install build-essential cmake libboost1.55-all-dev miniupnpc  libunbound-dev graphviz doxygen liblmdb-dev libssl-dev pkg-config
+
+<span class="pl-c"># download the latest bitmonero source code from github</span>
+git clone https://github.com/monero-project/bitmonero.git
+
+<span class="pl-c"># go into bitmonero folder</span>
+<span class="pl-c1">cd</span> bitmonero/
+
+<span class="pl-c"># compile</span>
+make release-static-32</pre></div>
+
+<p>After successful compilation, the Monero binaries should be located in <code>./bin</code></p>
+
+<p>I usually move the binaries into <code>/opt/bitmonero/</code> folder, so this can be done
+as follows:</p>
+
+<pre><code>sudo mkdir /opt/bitmonero
+sudo mv -v ./build/release/bin/* /opt/bitmonero/
+</code></pre>
+
+<p>To start now the only think left is to start the Monero daemon and let it
+download the blockchain and synchronize with the Monero network. After that,
+you can run your the <code>simplewallet</code>.</p>
+
+<p>Please note that downloading the full blockchain will probably be very slow. So it would be better to download it independently
+and then copy to the default Monero folder, i.e., <code>~/.bitmonero/lmdb/</code></p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># launch the Monero node daemon and let it synchronize with the Monero network</span>
+/opt/bitmonero/bitmonerod
+
+<span class="pl-c"># launch the Monero wallet</span>
+<span class="pl-c">#/opt/bitmonero/simplewallet</span></pre></div>
+
+<h2>
+<a id="example-screenshot" class="anchor" href="#example-screenshot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example screenshot</h2>
+
+<p><strong>Commands used to start the nodes and wallets:</strong>
+<img src="https://raw.githubusercontent.com/moneroexamples/compile-monero-whonix/master/img/whonix_monero.jpg" alt="Before"></p>
+
+<h2>
+<a id="how-can-you-help" class="anchor" href="#how-can-you-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How can you help?</h2>
+
+<p>Constructive criticism, code and website edits are always good. They can be made through github.</p>
+
+<p>Some Monero are also welcome:</p>
+
+<pre><code>48daf1rG3hE1Txapcsxh6WXNe9MLNKtu7W7tKTivtSoVLHErYzvdcpea2nSTgGkz66RFP4GKVAsTV14v6G3oddBTHfxP6tU
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/moneroexamples/compile-monero-whonix">Monero Examples</a> is maintained by <a href="https://github.com/moneroexamples">moneroexamples</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
