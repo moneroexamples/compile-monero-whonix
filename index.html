@@ -29,7 +29,9 @@ that privacy centric users can use as part of their privacy enhancing toolbox.</
 IP address will be exposed to others in the Monero network. And this, might be not
 ideal situation for some.</p>
 
-<p>One way to overcome this problem is to run the node through Tor. And this can be done having the Monero node running inside the Whonix.</p>
+<p>One way to overcome this problem is to run the node through Tor. And this can be done having the Monero node running inside the Whonix Workstation.</p>
+
+<p>Alternatively, one can use Tor through <code>torsocks</code> as explained <a href="https://github.com/monero-project/bitmonero#using-tor">here</a>.</p>
 
 <h2>
 <a id="preparation" class="anchor" href="#preparation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparation</h2>
@@ -70,7 +72,7 @@ sudo mv -v ./build/release/bin/* /opt/bitmonero/
 download the blockchain and synchronize with the Monero network. After that,
 you can run your the <code>simplewallet</code>.</p>
 
-<p>Please note that downloading the full blockchain will probably be very slow. So it would be better to download it independently
+<p>Please note that downloading the full blockchain will probably be slow. So it would be better to download it independently
 and then copy to the default Monero folder, i.e., <code>~/.bitmonero/lmdb/</code></p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"># launch the Monero node daemon and let it synchronize with the Monero network</span>
@@ -82,7 +84,7 @@ and then copy to the default Monero folder, i.e., <code>~/.bitmonero/lmdb/</code
 <h2>
 <a id="example-screenshot" class="anchor" href="#example-screenshot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example screenshot</h2>
 
-<p><strong>Commands used to start the nodes and wallets:</strong>
+<p><code>bitmonerod</code> daemon and <code>simplewallet</code> in Whonix Workstation:
 <img src="https://raw.githubusercontent.com/moneroexamples/compile-monero-whonix/master/img/whonix_monero.jpg" alt="Before"></p>
 
 <h2>
