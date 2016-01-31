@@ -6,9 +6,7 @@ One problem with Monero is that, if you want to run full Monero node, your
 IP address will be exposed to others in the Monero network. This, for some,
 might be not very good idea.
 
-One way to overcome this problem is to run the node through Tor. And this can be done having the Monero node runnign insde the Whonix.
-
-Is this the best solution possible? Probably not, as running a node in VirtualBox through tor can be slow (depending on your computer). In future, Monero will solve this problem by incorporating [i2p support](https://forum.getmonero.org/1/news-announcements-and-editorials/208/why-we-chose-i2p-over-tor).
+One way to overcome this problem is to run the node through Tor. And this can be done having the Monero node running inside the Whonix.
 
 ## Preparation
  Assuming that you have Whonix setup into your VirtualBox, the first thing that
@@ -49,11 +47,11 @@ To start now the only think left is to start the Monero daemon and let it
 download the blockchain and synchronize with the Monero network. After that,
 you can run your the `simplewallet`.
 
-Please note that downloading the full blockchain (over 7 GB as of October 2015) will probably be very slow. So it would be better to get download it independently
+Please note that downloading the full blockchain will probably be very slow. So it would be better to download it independently
 and then copy to the default Monero folder, i.e., `~/.bitmonero/lmdb/`
 
 ```bash
-# launch the Monero node demon and let it synchronize with the Monero network
+# launch the Monero node daemon and let it synchronize with the Monero network
 /opt/bitmonero/bitmonerod
 
 # launch the Monero wallet
