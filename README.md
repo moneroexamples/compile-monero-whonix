@@ -3,8 +3,8 @@
 that privacy centric users can use as part of their privacy enhancing toolbox.
 
 One problem with Monero is that, if you want to run full Monero node, your
-IP address will be exposed to others in the Monero network. This, for some,
-might be not very good idea.
+IP address will be exposed to others in the Monero network. And this, might be not
+ideal situation for some.
 
 One way to overcome this problem is to run the node through Tor. And this can be done having the Monero node running inside the Whonix.
 
@@ -34,7 +34,7 @@ cd bitmonero/
 make release-static-32
 ```
 
-After successful compilation, the Monero binaries should be located in `./bin`
+After successful compilation, the Monero binaries should be located in `./build/release/bin/`
 
 I usually move the binaries into `/opt/bitmonero/` folder, so this can be done
 as follows:
