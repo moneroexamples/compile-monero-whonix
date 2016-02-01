@@ -24,7 +24,7 @@ Start your Whonix-Workstation and do the following in the workstation.
 
 ```bash
 # install dependencies
-sudo apt-get install build-essential cmake libboost1.55-all-dev miniupnpc  libunbound-dev graphviz doxygen liblmdb-dev libssl-dev pkg-config
+sudo apt-get install build-essential cmake libboost1.55-all-dev miniupnpc  libunbound-dev graphviz doxygen libssl-dev pkg-config
 
 # download the latest bitmonero source code from github
 git clone https://github.com/monero-project/bitmonero.git
